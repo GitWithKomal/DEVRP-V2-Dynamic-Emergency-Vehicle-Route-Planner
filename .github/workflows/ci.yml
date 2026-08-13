@@ -27,3 +27,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t devrp-backend ./backend
+
+      - name: Deploy to Render
+        if: success()
+        run: curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
