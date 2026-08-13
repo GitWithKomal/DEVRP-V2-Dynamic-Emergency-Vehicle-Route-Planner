@@ -188,6 +188,36 @@ The command center is designed to work across:
 
 ---
 
+## 🚀 DevOps & CI/CD
+
+The backend is containerized and supported with a lightweight CI/CD workflow to provide consistent builds, automated validation, and reliable deployment.
+
+### Docker
+
+- Created a dedicated `Dockerfile` for the Flask backend using `python:3.13-slim`.
+- Used `WORKDIR`, dependency-first `COPY`, and `pip install --no-cache-dir` for a clean and efficient image.
+- Used Gunicorn as the production WSGI server.
+- Added `.dockerignore` to exclude `.env`, `__pycache__`, `.git`, and unnecessary files from the Docker build context.
+
+### Docker Compose
+
+Docker Compose is used to simplify local container orchestration and provide a reproducible backend environment.
+
+```text
+docker-compose.yml
+        │
+        ▼
+Build backend image
+        │
+        ▼
+Create container
+        │
+        ▼
+Expose port 5000
+        │
+        ▼
+Run Flask application with Gunicorn
+
 ## 📂 Project Structure
 
 ```text
