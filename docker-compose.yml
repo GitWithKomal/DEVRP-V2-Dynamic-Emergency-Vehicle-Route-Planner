@@ -1,0 +1,10 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+    container_name: devrp-backend-compose
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
